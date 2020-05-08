@@ -1,5 +1,8 @@
 package data.missions.randombattle1;
 
+import java.util.LinkedList;
+import java.util.ListIterator;
+
 import com.fs.starfarer.api.fleet.FleetGoal;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.mission.FleetSide;
@@ -12,15 +15,34 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		int currFP = 0;
 
 		RandomShipGenerator generator = new RandomShipGenerator(api);
+		LinkedList ships = new LinkedList();
 		
 		while (true) {
 			String id = generator.getNext();
 			int cost = api.getFleetPointCost(id);
 			currFP += cost;
+
+			ListIterator iterator = ships.listIterator();
+			while (iterator.hasNext()) {
+				String otherShip = (String) iterator.next();
+				int otherShipCost = api.getFleetPointCost(otherShip);
+				if (otherShipCost < cost) {
+					iterator.previous();
+					break;
+				}
+			}
+			iterator.add(id);
+
 			if (currFP > maxFP)
-				return;
-			
-			api.addToFleet(side, id, FleetMemberType.SHIP, false);
+				break;
+		}
+
+		ListIterator iterator = ships.listIterator();
+		String flagship = (String) iterator.next();
+		api.addToFleet(side, flagship, FleetMemberType.SHIP, true);
+		while (iterator.hasNext()) {
+			String ship = (String) iterator.next();
+			api.addToFleet(side, ship, FleetMemberType.SHIP, false);
 		}
 	}
 	
