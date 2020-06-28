@@ -1,6 +1,6 @@
 package data.missions.randombattle1;
 
-import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
 
 import com.fs.starfarer.api.fleet.FleetGoal;
@@ -8,35 +8,15 @@ import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
-import data.missions.scripts.RandomShipGenerator;
+import data.missions.scripts.RandomFleetGenerator;
 
 public class MissionDefinition implements MissionDefinitionPlugin {
+	private static final int MIN_FP = 50;
+	private static final int MAX_FP = 150;
+
 	private void generateFleet(int maxFP, FleetSide side, MissionDefinitionAPI api) {
-		int currFP = 0;
-
-		RandomShipGenerator generator = new RandomShipGenerator(api);
-		LinkedList ships = new LinkedList();
-		
-		while (true) {
-			String id = generator.getNext();
-			int cost = api.getFleetPointCost(id);
-			currFP += cost;
-
-			ListIterator iterator = ships.listIterator();
-			while (iterator.hasNext()) {
-				String otherShip = (String) iterator.next();
-				int otherShipCost = api.getFleetPointCost(otherShip);
-				if (otherShipCost < cost) {
-					iterator.previous();
-					break;
-				}
-			}
-			iterator.add(id);
-
-			if (currFP > maxFP)
-				break;
-		}
-
+		RandomFleetGenerator generator = new RandomFleetGenerator(api);
+		List ships = generator.generateFleet(maxFP);
 		ListIterator iterator = ships.listIterator();
 		String flagship = (String) iterator.next();
 		api.addToFleet(side, flagship, FleetMemberType.SHIP, true);
@@ -63,13 +43,13 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addBriefingItem("Defeat all enemy forces");
 		
 		// Set up the fleets
-		generateFleet(100 + (int)((float) Math.random() * 50), FleetSide.PLAYER, api);
-		generateFleet(100 + (int)((float) Math.random() * 50), FleetSide.ENEMY, api);
+		generateFleet(MIN_FP + (int)((float) Math.random() * (MAX_FP-MIN_FP)), FleetSide.PLAYER, api);
+		generateFleet(MIN_FP + (int)((float) Math.random() * (MAX_FP-MIN_FP)), FleetSide.ENEMY, api);
 		
 		// Set up the map.
 		float width = 24000f;
 		float height = 18000f;
-		api.initMap((float)-width/2f, (float)width/2f, (float)-height/2f, (float)height/2f);
+		api.initMap(-width /2f, width /2f, -height /2f, height /2f);
 		
 		float minX = -width/2;
 		float minY = -height/2;

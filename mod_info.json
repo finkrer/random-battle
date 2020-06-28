@@ -2,7 +2,8 @@
     "id": "finkrer_random_battle",
     "name": "Random Battle Improved",
     "author": "finkrer",
-    "version": "1.0",
-    "description": "Adds all ship variants as options in the Random Battle mission.",
-    "gameVersion": "0.9.1a"
+    "version": "2.0",
+    "description": "Adds all vanilla and some modded ship variants as options in the Random Battle mission.",
+    "gameVersion": "0.9.1a",
+    "jars": ["jars/Random Battle Improved.jar"]
 }
