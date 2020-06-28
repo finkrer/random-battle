@@ -13,6 +13,7 @@ import java.util.*;
 public class RandomFleetGenerator {
     private static final Logger log = Global.getLogger(RandomFleetGenerator.class);
     private static final String CONFIG_PATH = "ships.json";
+    private static final String MODS_PATH = "mods.json";
     private final List<String> shipList = new ArrayList<>();
     private final MissionDefinitionAPI api;
 
@@ -20,9 +21,10 @@ public class RandomFleetGenerator {
         this.api = api;
         try {
             JSONObject data = Global.getSettings().loadJSON(CONFIG_PATH);
-            populateShipList(data);
+            JSONObject modInfo = Global.getSettings().loadJSON(MODS_PATH);
+            populateShipList(data, modInfo);
         } catch (JSONException | IOException ex) {
-            log.error(CONFIG_PATH+" not found or corrupt");
+            log.error(CONFIG_PATH + " or " + MODS_PATH + " not found or corrupt");
         }
     }
 
@@ -51,15 +53,25 @@ public class RandomFleetGenerator {
         return ships;
     }
 
-    private void populateShipList(JSONObject data) throws JSONException {
+    private void populateShipList(JSONObject data, JSONObject modInfo) throws JSONException {
+        Map<String, String> prefixes = new HashMap<>();
+        for (Iterator mods = modInfo.keys(); mods.hasNext();) {
+            String modName = (String) mods.next();
+            if (!Global.getSettings().getModManager().isModEnabled(modName) && !modName.equals("vanilla"))
+                continue;
+            String prefix = modInfo.getString(modName);
+            if (!prefix.isEmpty())
+                prefix = prefix + "_";
+            prefixes.put(modName, prefix);
+        }
+
         for (Iterator mods = data.keys(); mods.hasNext();) {
             String modName = (String) mods.next();
             JSONObject mod = data.getJSONObject(modName);
             for (Iterator ships = mod.keys(); ships.hasNext();) {
                 String ship = (String) ships.next();
                 JSONArray variants = mod.getJSONArray(ship);
-                String prefix = modName.equals("vanilla") ? "" : mod + "_";
-                add(prefix+ship, variants);
+                add(prefixes.get(modName)+ship, variants);
             }
         }
     }
