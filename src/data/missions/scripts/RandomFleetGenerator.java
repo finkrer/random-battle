@@ -67,6 +67,8 @@ public class RandomFleetGenerator {
 
         for (Iterator mods = data.keys(); mods.hasNext();) {
             String modName = (String) mods.next();
+            if (!prefixes.containsKey(modName))
+                continue;
             JSONObject mod = data.getJSONObject(modName);
             for (Iterator ships = mod.keys(); ships.hasNext();) {
                 String ship = (String) ships.next();
@@ -77,7 +79,8 @@ public class RandomFleetGenerator {
     }
 
     private void add(String name, JSONArray variants) throws JSONException {
-        int weight = (int) Math.ceil(180.0 / api.getFleetPointCost(name + "_" + variants.get(0)) / variants.length());
+        int cost = api.getFleetPointCost(name + "_" + variants.get(0));
+        int weight = (int) Math.ceil(180.0 / Math.pow(cost, 0.75) / variants.length());
         for (int i = 0; i < variants.length(); i++) {
             for (int j = 0; j < weight; j++) {
                 shipList.add(name + "_" + variants.get(i));

@@ -502,7 +502,6 @@
     "DisassembleReassemble": {
         "acanthina": [
             "Drone",
-            "Freighter",
             "Gunship",
             "heg_Missile",
             "Missile"
@@ -634,10 +633,6 @@
             "pirates_Assault",
             "Support"
         ],
-        "triton": [
-            "Standard",
-            "Support"
-        ],
         "vagrant": [
             "Standard",
             "Support"
@@ -656,6 +651,399 @@
             "OD",
             "pirates_CS",
             "xiv_Escort"
+        ]
+    },
+    "StopGapMeasures": {
+        "arbitrator": [
+            "Standard",
+            "Support"
+        ],
+        "ballista": [
+            "CS",
+            "Standard",
+            "Support"
+        ],
+        "cathar": [
+            "Assault",
+            "Siege"
+        ],
+        "charon": [
+            "invasion",
+            "siege"
+        ],
+        "chrysops": [
+            "assault",
+            "raider"
+        ],
+        "contemptor": [
+            "balanced",
+            "support"
+        ],
+        "copernic": [
+            "Carrier",
+            "Combat",
+            "Exploration",
+            "Hegemony",
+            "Support"
+        ],
+        "cossack": [
+            "Attack",
+            "escort"
+        ],
+        "crusader": [
+            "Standard",
+            "Support"
+        ],
+        "dove": [
+            "Frontier",
+            "Pursuit",
+            "Standard"
+        ],
+        "dragoon": [
+            "balanced",
+            "elite",
+            "support"
+        ],
+        "era": [
+            "defense",
+            "freighter"
+        ],
+        "era_lc": [
+            "assault",
+            "exploration",
+            "Overdriven"
+        ],
+        "foundation": [
+            "Support"
+        ],
+        "herder": [
+            "Attack",
+            "Support"
+        ],
+        "hoplite": [
+            "Attack",
+            "Pirate",
+            "Standard"
+        ],
+        "huntsman": [
+            "Standard",
+            "Strike",
+            "Support"
+        ],
+        "martyr": [
+            "Attack",
+            "Standard",
+            "Support"
+        ],
+        "merx": [
+            "attack",
+            "support"
+        ],
+        "minos": [
+            "Attack",
+            "Escort",
+            "Support"
+        ],
+        "mkII": [
+            "missile"
+        ],
+        "nitassinan": [
+            "standard",
+            "support"
+        ],
+        "opportunity": [
+            "Assault",
+            "Balanced",
+            "Support"
+        ],
+        "pyrphoros": [
+            "Escort",
+            "Strike"
+        ],
+        "pyrrhocorax": [
+            "Standard",
+            "Support"
+        ],
+        "templar": [
+            "Assault",
+            "Standard"
+        ],
+        "triumph": [
+            "Assault",
+            "Siege"
+        ],
+        "wagner": [
+            "Elite",
+            "Pirate",
+            "Standard",
+            "Support"
+        ],
+        "wardlaw": [
+            "attack",
+            "overdriven",
+            "standard"
+        ],
+        "zenith": [
+            "assault",
+            "balanced",
+            "support"
+        ]
+    },
+    "tahlan": {
+        "Bronco": [
+            "overdriven",
+            "strike",
+            "support"
+        ],
+        "Bronco_p": [
+            "brawler",
+            "overdriven",
+            "sniper"
+        ],
+        "Bungalow": [
+            "bomber",
+            "elite"
+        ],
+        "Castella": [
+            "elite",
+            "lp_standard",
+            "pirates_artillery",
+            "pirates_standard",
+            "standard"
+        ],
+        "Castigator": [
+            "outdated",
+            "standard",
+            "xiv_elite"
+        ],
+        "Castigator_P": [
+            "lancer",
+            "overdriven",
+            "raider"
+        ],
+        "Defiance": [
+            "elite",
+            "overdriven"
+        ],
+        "Dominator_PH": [
+            "overdriven",
+            "sabot",
+            "striker"
+        ],
+        "drover": [
+            "thunderer"
+        ],
+        "DunScaith": [
+            "barrage",
+            "elite",
+            "standard"
+        ],
+        "Eagle_P": [
+            "raider"
+        ],
+        "Flagellator": [
+            "elite",
+            "overdriven"
+        ],
+        "Flagellator_pi": [
+            "missile",
+            "overdriven",
+            "strike"
+        ],
+        "Haelequin": [
+            "overdriven",
+            "standard",
+            "support"
+        ],
+        "Hresvelgr": [
+            "combat",
+            "outdated",
+            "standard",
+            "rg_combat"
+        ],
+        "Hresvelgr_p": [
+            "barrage",
+            "standard",
+            "strike"
+        ],
+        "Ingress": [
+            "standard"
+        ],
+        "Kodai": [
+            "beamer",
+            "standard"
+        ],
+        "Korikaze": [
+            "ion"
+        ],
+        "lasher_pi": [
+            "elite",
+            "overdriven",
+            "support"
+        ],
+        "Phoca": [
+            "elite",
+            "overdriven",
+            "standard"
+        ],
+        "Skola": [
+            "standard"
+        ],
+        "Tempest_P": [
+            "overdriven",
+            "standard"
+        ],
+        "Torii": [
+            "standard"
+        ],
+        "Yosei": [
+            "standard"
+        ],
+        "Yukikaze": [
+            "brawler",
+            "lancer"
+        ]
+    },
+    "TORCHSHIPS": {
+        "attrition": [
+            "elite",
+            "outdated",
+            "standard"
+        ],
+        "bonnethead": [
+            "assault",
+            "brawler",
+            "standard",
+            "support"
+        ],
+        "bonnethead_pather": [
+            "assault",
+            "outdated",
+            "standard"
+        ],
+        "bonnethead_pirate": [
+            "brawler",
+            "outdated",
+            "standard"
+        ],
+        "bully": [
+            "assault",
+            "brawler",
+            "combat",
+            "support"
+        ],
+        "bully_pather": [
+            "brawler",
+            "support"
+        ],
+        "bully_pirate": [
+            "assault",
+            "combat"
+        ],
+        "challenger": [
+            "assault",
+            "brawler",
+            "combat",
+            "standard"
+        ],
+        "challenger_pather": [
+            "brawler",
+            "combat"
+        ],
+        "challenger_pirate": [
+            "assault",
+            "standard"
+        ],
+        "crane_pirate": [
+            "assault",
+            "outdated",
+            "standard"
+        ],
+        "foray": [
+            "outdated",
+            "standard",
+            "support"
+        ],
+        "foray_pather": [
+            "improvised",
+            "standard",
+            "support"
+        ],
+        "foray_pirate": [
+            "improvised",
+            "standard",
+            "support"
+        ],
+        "gunwall": [
+            "advanced",
+            "outdated",
+            "standard",
+            "support"
+        ],
+        "gunwall_pirate": [
+            "bbq",
+            "improvised",
+            "standard",
+            "support"
+        ],
+        "gunwall_XIV": [
+            "advanced",
+            "outdated",
+            "standard"
+        ],
+        "hightide": [
+            "combat",
+            "outdated",
+            "support"
+        ],
+        "hightide_pirate": [
+            "combat",
+            "outdated",
+            "support"
+        ],
+        "lasherTT": [
+            "advanced",
+            "assault",
+            "standard",
+            "support"
+        ],
+        "owl": [
+            "assault",
+            "balanced",
+            "standard"
+        ],
+        "tempest_pirate": [
+            "combat",
+            "elite",
+            "outdated"
+        ],
+        "tinnitus": [
+            "assault",
+            "beamer",
+            "outdated",
+            "support"
+        ],
+        "tinnitus_p": [
+            "standard",
+            "support"
+        ],
+        "tinnitus_xiv": [
+            "advanced",
+            "assault",
+            "beamer",
+            "support"
+        ],
+        "whirlwind": [
+            "assault",
+            "beamer",
+            "standard",
+            "support"
+        ]
+    },
+    "vayrashippack": {
+        "pathfinder": [
+            "artillery",
+            "beam"
         ]
     }
 }
